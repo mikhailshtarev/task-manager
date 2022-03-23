@@ -1,0 +1,42 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="mikhail.e.shtarev@gmail.com" id="1">
+        <createTable tableName="users">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="username" type="VARCHAR(100)">
+                <constraints unique="true"/>
+            </column>
+            <column name="password" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="last_updated_date_time" type="timestamp"/>
+            <column name="created_date_time" type="timestamp"/>
+            <column name="created_user" type="uuid"/>
+            <column name="last_updated_user" type="uuid"/>
+        </createTable>
+
+        <createTable tableName="roles">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="role_name" type="VARCHAR(100)">
+                <constraints unique="true"/>
+            </column>
+            <column name="activity" type="boolean"/>
+        </createTable>
+
+        <createTable tableName="users_roles">
+            <column name="user_id" type="uuid">
+                <constraints foreignKeyName="fk_user_id_users" references="users(id)"/>
+            </column>
+            <column name="role_id" type="uuid(100)">
+                <constraints foreignKeyName="fk_role_id_roles" references="roles(id)"/>
+            </column>
+            <column name="activity" type="boolean"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
