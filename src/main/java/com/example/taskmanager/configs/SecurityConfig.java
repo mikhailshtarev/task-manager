@@ -1,6 +1,6 @@
 package com.example.taskmanager.configs;
 
-import com.example.taskmanager.services.UserService;
+import com.example.taskmanager.services.UserServiceDetailsImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -14,7 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final UserService userService;
+    private final UserServiceDetailsImpl userServiceDetails;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -37,8 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public DaoAuthenticationProvider daoAuthenticationProvider() {
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
         daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
-        daoAuthenticationProvider.setUserDetailsService(userService );
-
+        daoAuthenticationProvider.setUserDetailsService(userServiceDetails);
         return daoAuthenticationProvider;
     }
 

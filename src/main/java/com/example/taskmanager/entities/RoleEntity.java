@@ -8,10 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.util.UUID;
 
-@Entity
 @Data
+@Entity
 @Table(name = "roles")
-public class Role extends AbstractPersistable<UUID> {
+public class RoleEntity extends AbstractPersistable<UUID> {
     @Column(name = "role_name")
     private String roleName;
     @Column(name = "activity")

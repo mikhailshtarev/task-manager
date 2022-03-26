@@ -9,7 +9,7 @@ import java.util.UUID;
 @Entity
 @Data
 @Table(name = "users")
-public class User extends BaseEntity<UUID> {
+public class UserEntity extends BaseEntity<UUID> {
     @Column(name = "username")
     private String username;
     @Column(name = "password")
@@ -21,5 +21,5 @@ public class User extends BaseEntity<UUID> {
     @JoinTable(name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles;
+    private Set<RoleEntity> roleEntities;
 }

@@ -1,17 +1,16 @@
 # task-manager
 Task manager show my knowledge .
 
-http://localhost:8180/auth/
+http://localhost:8080/security/
 
-Keyclock Users:
-Role: user
-Login:username-test
-Password:username-test
+Role: ROLE_USER
+Login:useruser
+Password:password
 
-Role:content-manage
-Login:content-manager-test
-Password:content-manager-test
+Role:ROLE_USER,ROLE_CONTENT_MANAGER
+Login:contentcontent
+Password:password
 
-Role:administrator
-Login:administrator-user
-Password:administrator-user
+Role:ROLE_USER,ROLE_CONTENT_MANAGER,ROLE_ADMIN,READ_PROFILE
+Login:adminadmin
+Password:password

@@ -3,7 +3,7 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
 
-    <changeSet author="mikhail.e.shtarev@gmail.com" id="1">
+    <changeSet author="mikhail.e.shtarev@gmail.com" id="create_users">
         <createTable tableName="users">
             <column name="id" type="uuid">
                 <constraints primaryKey="true"/>
@@ -18,7 +18,9 @@
             <column name="created_user" type="uuid"/>
             <column name="last_updated_user" type="uuid"/>
         </createTable>
+    </changeSet>
 
+    <changeSet author="mikhail.e.shtarev@gmail.com" id="create_roles_and_bonds_with_users">
         <createTable tableName="roles">
             <column name="id" type="uuid">
                 <constraints primaryKey="true"/>
@@ -36,7 +38,14 @@
             <column name="role_id" type="uuid(100)">
                 <constraints foreignKeyName="fk_role_id_roles" references="roles(id)"/>
             </column>
-            <column name="activity" type="boolean"/>
         </createTable>
+    </changeSet>
+
+    <changeSet author="mikhail.e.shtarev@gmail.com" id="insert_role_into_roles">
+        <sqlFile path="roles.sql"/>
+    </changeSet>
+
+    <changeSet author="mikhail.e.shtarev@gmail.com" id="insert_users">
+        <sqlFile path="initusers.sql"/>
     </changeSet>
 </databaseChangeLog>

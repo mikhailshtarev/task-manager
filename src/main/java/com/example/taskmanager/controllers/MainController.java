@@ -1,11 +1,13 @@
 package com.example.taskmanager.controllers;
 
-import com.example.taskmanager.entities.User;
+import com.example.taskmanager.entities.UserEntity;
 import com.example.taskmanager.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Optional;
 
 
 @RestController
@@ -21,15 +23,20 @@ public class MainController {
 
     @GetMapping("/authenticated")
     public String pageForAutentificatedUsers(Authentication authentication) {
-        User user = userService.findByUsername(authentication.getName());
-        return "secured part of web service:__ " + user.getId()+" + "+user.getUsername()+" + "+user.getPassword()+"" +
-                " + "+user.getEmail()+" + "+user.getRoles().toString();
+        Optional<UserEntity> userEntityOpt = userService.findByUsername(authentication.getName());
+        if (userEntityOpt.isEmpty()) {
+            return "userNotFound";
+        }
+        UserEntity userEntity = userEntityOpt.get();
+        return "secured part of web service:__ " + userEntity.getId() + " + " + userEntity.getUsername() + " + " + userEntity.getPassword() + "" +
+                " + " + userEntity.getEmail() + " + " + userEntity.getRoleEntities().toString();
     }
 
     @GetMapping("/read_profile")
     public String pageForReadProfile() {
         return "read profile page";
     }
+
     @GetMapping("/only_for_admins")
     public String pageOnlyForAdmins() {
         return "only for admins";

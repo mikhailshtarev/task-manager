@@ -1,11 +1,13 @@
 package com.example.taskmanager.repositories;
 
-import com.example.taskmanager.entities.User;
+import com.example.taskmanager.entities.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-public interface UserRepository extends JpaRepository<User, Long> {
+import java.util.Optional;
 
-    User findByUsername(String userName);
+@RestController
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
+
+    Optional<UserEntity> findByUsername(String userName);
 }
