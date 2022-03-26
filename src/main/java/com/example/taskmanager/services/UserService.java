@@ -1,6 +1,6 @@
 package com.example.taskmanager.services;
 
-import com.example.taskmanager.entities.UserEntity;
+import com.example.taskmanager.entities.users.UserEntity;
 
 import java.util.Optional;
 

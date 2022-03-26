@@ -48,4 +48,44 @@
     <changeSet author="mikhail.e.shtarev@gmail.com" id="insert_users">
         <sqlFile path="initusers.sql"/>
     </changeSet>
+
+    <changeSet author="mikhail.e.shtarev@gmail.com" id="create_projects">
+        <createTable tableName="projects">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="project_name" type="VARCHAR(255)">
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="manager_id" type="uuid"/>
+            <column name="last_updated_date_time" type="timestamp"/>
+            <column name="created_date_time" type="timestamp"/>
+            <column name="created_user" type="uuid"/>
+            <column name="last_updated_user" type="uuid"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="projects" baseColumnNames="manager_id"
+                                 constraintName="project_to_user_id" referencedTableName="users"
+                                 referencedColumnNames="id"/>
+
+    </changeSet>
+
+    <changeSet author="mikhail.e.shtarev@gmail.com" id="create_tasks">
+        <createTable tableName="tasks">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="header" type="VARCHAR(255)">
+            </column>
+            <column name="description" type="VARCHAR"/>
+            <column name="priority" type="int"/>
+            <column name="project_id" type="uuid"/>
+            <column name="last_updated_date_time" type="timestamp"/>
+            <column name="created_date_time" type="timestamp"/>
+            <column name="created_user" type="uuid"/>
+            <column name="last_updated_user" type="uuid"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="tasks" baseColumnNames="project_id"
+                                 constraintName="task_to_project_id" referencedTableName="projects"
+                                 referencedColumnNames="id"/>
+    </changeSet>
 </databaseChangeLog>

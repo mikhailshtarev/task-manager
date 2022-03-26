@@ -1,6 +1,6 @@
 package com.example.taskmanager.controllers;
 
-import com.example.taskmanager.entities.UserEntity;
+import com.example.taskmanager.entities.users.UserEntity;
 import com.example.taskmanager.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;

@@ -1,4 +1,4 @@
-package com.example.taskmanager.entities;
+package com.example.taskmanager.entities.users;
 
 import lombok.Data;
 import org.springframework.data.jpa.domain.AbstractPersistable;

@@ -20,7 +20,7 @@ import java.util.UUID;
 @EntityListeners(AuditingEntityListener.class)
 @Getter
 @Setter
-abstract class BaseEntity<ID extends Serializable> extends AbstractPersistable<ID> {
+public abstract class BaseEntity<ID extends Serializable> extends AbstractPersistable<ID> {
 
 
     @Column(nullable = false, updatable = false, name = "created_date_time")

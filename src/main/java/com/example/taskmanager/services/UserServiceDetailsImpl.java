@@ -1,7 +1,6 @@
 package com.example.taskmanager.services;
 
-import com.example.taskmanager.entities.RoleEntity;
-import com.example.taskmanager.entities.UserEntity;
+import com.example.taskmanager.entities.users.UserEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

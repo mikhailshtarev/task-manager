@@ -1,7 +1,7 @@
 package com.example.taskmanager.services;
 
-import com.example.taskmanager.entities.RoleEntity;
-import com.example.taskmanager.entities.UserEntity;
+import com.example.taskmanager.entities.users.RoleEntity;
+import com.example.taskmanager.entities.users.UserEntity;
 import com.example.taskmanager.repositories.RoleRepository;
 import com.example.taskmanager.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
