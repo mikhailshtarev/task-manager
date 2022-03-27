@@ -26,7 +26,7 @@ public class UserEntity extends BaseEntity<UUID> {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<RoleEntity> roleEntities;
 
-    @OneToMany(mappedBy = "manager", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "manager", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private Set<ProjectEntity> projects = new HashSet<>();
 
     public void addProject(ProjectEntity projectEntity) {

@@ -88,4 +88,11 @@
                                  constraintName="task_to_project_id" referencedTableName="projects"
                                  referencedColumnNames="id"/>
     </changeSet>
+
+    <changeSet author="mikhail.e.shtarev@gmail.com" id="insert_projects">
+        <sqlFile path="data_for_tests/init_projects.sql"/>
+    </changeSet>
+    <changeSet author="mikhail.e.shtarev@gmail.com" id="insert_tasks">
+        <sqlFile path="data_for_tests/init_tasks.sql"/>
+    </changeSet>
 </databaseChangeLog>

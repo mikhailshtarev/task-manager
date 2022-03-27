@@ -1,0 +1,18 @@
+insert into tm_db.tasks (id, header, description, priority, project_id, last_updated_date_time, created_date_time,
+                         created_user, last_updated_user)
+values ('50699c81-a714-4203-bc14-409053a6ef75', 'header task 1.1', 'description task 1.1', 1,
+        '2bb3655f-1a70-42eb-ac44-b81ef0bbd9b3', '2022-03-27 00:00:00.000000', '2022-03-27 00:00:00.000000',
+        '2bb3655f-7a70-42eb-ac44-b81ef0bbd9b1',
+        '2bb3655f-7a70-42eb-ac44-b81ef0bbd9b1'),
+       ('50799c81-a714-4203-bc14-409053a6ef75', 'header task 2.1', 'description task 2.1', 1,
+        '2bb3655f-2a70-42eb-ac44-b81ef0bbd9b3', '2022-03-27 00:00:00.000000', '2022-03-27 00:00:00.000000',
+        '2bb3655f-7a70-42eb-ac44-b81ef0bbd9b1',
+        '2bb3655f-7a70-42eb-ac44-b81ef0bbd9b1'),
+       ('50899c81-a714-4203-bc14-409053a6ef75', 'header task 2.2', 'description task 2.2', 2,
+        '2bb3655f-2a70-42eb-ac44-b81ef0bbd9b3', '2022-03-27 00:00:00.000000', '2022-03-27 00:00:00.000000',
+        '2bb3655f-7a70-42eb-ac44-b81ef0bbd9b1',
+        '2bb3655f-7a70-42eb-ac44-b81ef0bbd9b1'),
+       ('50999c81-a714-4203-bc14-409053a6ef75', 'header task 2.3', 'description task 2.3', 3,
+        '2bb3655f-2a70-42eb-ac44-b81ef0bbd9b3', '2022-03-27 00:00:00.000000', '2022-03-27 00:00:00.000000',
+        '2bb3655f-7a70-42eb-ac44-b81ef0bbd9b1',
+        '2bb3655f-7a70-42eb-ac44-b81ef0bbd9b1');
